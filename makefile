@@ -1,6 +1,6 @@
 NA = nasm
-NFlags = -f elf32 -i /home/morticia/Projects/OSDev/Learning/1/src/asm/
-BOOTFlags = -f bin -i /home/morticia/Projects/OSDev/Learning/1/src/asm/
+NFlags = -f elf32 -i /home/morticia/Projects/OSDev/Learning/1-3/src/asm/
+BOOTFlags = -f bin -i /home/morticia/Projects/OSDev/Learning/1-3/src/asm/boot/
 
 CC = /usr/bin/i686-elf-gcc
 CFlags = -g -m32 -Wall -ffreestanding
@@ -68,8 +68,8 @@ image: $(OUTDIR)/$(bin)
 run: $(iso)
 	$(EM) $(EFlags) -cdrom $(iso)
 
-dump: $(OUTDIR)/$(elf)
-	objdump -d $<
+dump: $(OUTDIR)/$(bin)
+	objdump -b binary -m i386 -D $<
 
 clean:
 	rm -f $(OA_DIR)/$(objects)

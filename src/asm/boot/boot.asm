@@ -35,7 +35,7 @@ _start: ; This area will focus on initial setup and loading the rest of the kern
 
 failsafe: jmp $ ; Should never be executed, failsafe
 
-working_msg: db 'This is a test', 0
+working_msg: db 'Working...', 0
 
 ; Fill out 512 bytes space, add magic number to designate this as a bootsector
 times 510 - ($-$$) db 0
